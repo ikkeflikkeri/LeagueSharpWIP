@@ -67,6 +67,7 @@ namespace EasyCassiopeia
             Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_w", "W Range").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
             Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_e", "E Range").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
             Menu.SubMenu("Drawing").AddItem(new MenuItem("Drawing_r", "R Range").SetValue(new Circle(true, Color.FromArgb(100, 0, 255, 0))));
+            Menu.AddItem(new MenuItem("toggle", "toggle").SetValue(true));
         }
 
         protected override void Combo()
@@ -83,29 +84,32 @@ namespace EasyCassiopeia
         }
         protected override void LaneClear()
         {
-            if (Spells["E"].IsReady())
+            if (Menu.Item("toggle").GetValue<bool>())
             {
-                Obj_AI_Base minion = MinionManager.GetMinions(Player.Position, Spells["E"].Range).Where(min => HealthPrediction.GetHealthPrediction(min, 500) < (DamageLib.getDmg(min, DamageLib.SpellType.E) * 0.7f) && min.HasBuffOfType(BuffType.Poison)).FirstOrDefault();
-                if (minion != null) Spells["E"].CastOnUnit(minion, false);
-            }
-            
-            if (Spells["Q"].IsReady())
-            {
-                var minions = MinionManager.GetMinions(Player.Position, Spells["Q"].Range).Where(min => !min.HasBuffOfType(BuffType.Poison)).ToArray();
-                if (minions.Length > 1)
+                if (Spells["E"].IsReady())
                 {
-                    var position = MinionManager.GetBestCircularFarmLocation(minions.Select(minion => minion.ServerPosition.To2D()).ToList(), Spells["Q"].Width * 2, Spells["Q"].Range);
-                    Spells["Q"].Cast(position.Position, true);
+                    Obj_AI_Base minion = MinionManager.GetMinions(Player.Position, Spells["E"].Range).Where(min => HealthPrediction.GetHealthPrediction(min, 500) < (DamageLib.getDmg(min, DamageLib.SpellType.E) * 0.7f) && min.HasBuffOfType(BuffType.Poison)).FirstOrDefault();
+                    if (minion != null) Spells["E"].CastOnUnit(minion, false);
                 }
-            }
-            
-            if (Spells["W"].IsReady())
-            {
-                var minions = MinionManager.GetMinions(Player.Position, Spells["W"].Range).Where(min => !min.HasBuffOfType(BuffType.Poison)).ToArray();
-                if (minions.Length > 1)
+
+                if (Spells["Q"].IsReady())
                 {
-                    var position = MinionManager.GetBestCircularFarmLocation(minions.Select(minion => minion.ServerPosition.To2D()).ToList(), Spells["W"].Width * 2, Spells["W"].Range);
-                    Spells["W"].Cast(position.Position, true);
+                    var minions = MinionManager.GetMinions(Player.Position, Spells["Q"].Range).Where(min => !min.HasBuffOfType(BuffType.Poison)).ToArray();
+                    if (minions.Length > 1)
+                    {
+                        var position = MinionManager.GetBestCircularFarmLocation(minions.Select(minion => minion.ServerPosition.To2D()).ToList(), Spells["Q"].Width * 2, Spells["Q"].Range);
+                        Spells["Q"].Cast(position.Position, true);
+                    }
+                }
+
+                if (Spells["W"].IsReady())
+                {
+                    var minions = MinionManager.GetMinions(Player.Position, Spells["W"].Range).Where(min => !min.HasBuffOfType(BuffType.Poison)).ToArray();
+                    if (minions.Length > 1)
+                    {
+                        var position = MinionManager.GetBestCircularFarmLocation(minions.Select(minion => minion.ServerPosition.To2D()).ToList(), Spells["W"].Width * 2, Spells["W"].Range);
+                        Spells["W"].Cast(position.Position, true);
+                    }
                 }
             }
         }

@@ -1,0 +1,11 @@
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\EasyCassiopeia.exe.config
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\EasyCassiopeia.exe
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\EasyCassiopeia.pdb
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\LeagueSharp.Common.dll
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\LeagueSharp.dll
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\SharpDX.dll
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\SharpDX.Direct3D9.dll
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\bin\Release\LeagueSharp.xml
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\obj\Debug\EasyCassiopeia.csprojResolveAssemblyReference.cache
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\obj\Debug\EasyCassiopeia.exe
+D:\Data\GitHub\LeagueSharpWIP\EasyCassiopeia\EasyCassiopeia\obj\Debug\EasyCassiopeia.pdb
