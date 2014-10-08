@@ -154,12 +154,9 @@ namespace EasyCassiopeia
         {
             float damage = 0;
 
-            if (Spells["E"].Level > 0)
-                damage += ((float)Damage.GetSpellDamage(Player, hero, SpellSlot.E) * 3);
-            if (Spells["Q"].IsReady())
-                damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.Q);
-            if (Spells["R"].IsReady())
-                damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.R);
+            damage += ((float)Damage.GetSpellDamage(Player, hero, SpellSlot.E) * 3);
+            damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.Q);
+            damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.R);
 
             return damage;
         }

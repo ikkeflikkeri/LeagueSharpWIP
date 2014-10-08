@@ -1,0 +1,11 @@
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\EasyKogMaw.exe.config
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\EasyKogMaw.exe
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\EasyKogMaw.pdb
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\LeagueSharp.Common.dll
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\LeagueSharp.dll
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\SharpDX.dll
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\SharpDX.Direct3D9.dll
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\bin\Release\LeagueSharp.xml
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\obj\Debug\EasyKogMaw.csprojResolveAssemblyReference.cache
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\obj\Debug\EasyKogMaw.exe
+D:\Data\GitHub\EasyKogMaw\EasyKogMaw\obj\Debug\EasyKogMaw.pdb

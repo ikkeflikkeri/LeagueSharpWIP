@@ -30,10 +30,10 @@ namespace EasyCassiopeia
         protected override void InitializeSpells()
         {
             Spell Q = new Spell(SpellSlot.Q, 850);
-            Q.SetSkillshot(0.70f, 75f, float.MaxValue, false, SkillshotType.SkillshotCircle);
+            Q.SetSkillshot(0.65f, 75f, float.MaxValue, false, SkillshotType.SkillshotCircle);
 
             Spell W = new Spell(SpellSlot.W, 850);
-            W.SetSkillshot(0.70f, 75f, float.MaxValue, false, SkillshotType.SkillshotCircle);
+            W.SetSkillshot(0.65f, 75f, float.MaxValue, false, SkillshotType.SkillshotCircle);
 
             Spell E = new Spell(SpellSlot.E, 700);
 
@@ -145,23 +145,6 @@ namespace EasyCassiopeia
             DrawCircle("Drawing_w", "W");
             DrawCircle("Drawing_e", "E");
             DrawCircle("Drawing_r", "R");
-
-            Utility.HpBarDamageIndicator.DamageToUnit = ComboDamage;
-            Utility.HpBarDamageIndicator.Enabled = true;
-        }
-
-        private float ComboDamage(Obj_AI_Hero hero)
-        {
-            float damage = 0;
-
-            if (Spells["E"].Level > 0)
-                damage += ((float)Damage.GetSpellDamage(Player, hero, SpellSlot.E) * 3);
-            if (Spells["Q"].IsReady())
-                damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.Q);
-            if (Spells["R"].IsReady())
-                damage += (float)Damage.GetSpellDamage(Player, hero, SpellSlot.R);
-
-            return damage;
         }
 
         private void CastW()
@@ -169,10 +152,7 @@ namespace EasyCassiopeia
             if (!Spells["W"].IsReady()) return;
 
             Obj_AI_Hero target = SimpleTs.GetTarget(Spells["W"].Range, SimpleTs.DamageType.Magical);
-            if (target == null) return;
-            if(Spells["W"].GetPrediction(target).CastPosition.To2D().Distance(Player) < Spells["W"].Range - 200)
-                if(target.HasBuffOfType(BuffType.Poison))
-                    return;
+            if (target == null || (target.HasBuffOfType(BuffType.Poison) && Spells["W"].GetPrediction(target).CastPosition.To2D().Distance(Player) < Spells["W"].Range - 200)) return;
 
             if (target.IsValidTarget(Spells["W"].Range) && Spells["W"].GetPrediction(target).Hitchance >= HitChance.High)
                 Spells["W"].Cast(target, true);
